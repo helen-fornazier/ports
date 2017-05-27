@@ -1,14 +1,5 @@
 --- google_compute_engine/network_setup/network_setup.py.orig	2017-05-14 18:25:32 UTC
 +++ google_compute_engine/network_setup/network_setup.py
-@@ -74,7 +74,7 @@
-     Args:
-       interfaces: list of string, the output device names enable.
-     """
--    interface_path = '/etc/sysconfig/network-scripts'
-+    interface_path = '%%PREFIX%%/etc/sysconfig/network-scripts'
-     for interface in interfaces:
-       interface_config = os.path.join(interface_path, 'ifcfg-%s' % interface)
-       if os.path.exists(interface_config):
 @@ -106,12 +106,18 @@
      self.logger.info('Enabling the Ethernet interfaces %s.', interfaces)
      dhclient_command = ['dhclient']
@@ -34,12 +25,3 @@
  
    def _EnableNetworkInterfaces(self, interfaces):
      """Enable the list of network interfaces.
-@@ -130,7 +136,7 @@
-       except subprocess.CalledProcessError:
-         self.logger.warning('Could not enable Ethernet interfaces.')
-     else:
--      if os.path.exists('/etc/sysconfig/network-scripts'):
-+      if os.path.exists('%%PREFIX%%/etc/sysconfig/network-scripts'):
-         self._DisableNetworkManager(interfaces)
-       self._ConfigureNetwork(interfaces)
- 

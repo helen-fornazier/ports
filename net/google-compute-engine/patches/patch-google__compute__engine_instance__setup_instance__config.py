@@ -6,8 +6,8 @@
  Note that the configurations in
 -/etc/default/instance_configs.cfg.template override the values set in
 -/etc/default/instance_configs.cfg. The system instance_configs.cfg may be
-+%%PREFIX%%/etc/instance_configs.cfg.template override the values set in
-+%%PREFIX%%/etc/instance_configs.cfg. The system instance_configs.cfg may be
++/etc/instance_configs.cfg.template override the values set in
++/etc/instance_configs.cfg. The system instance_configs.cfg may be
  overridden during package upgrade.
  """
  
@@ -16,7 +16,7 @@
    """Creates a defaults config file for instance configuration."""
  
 -  instance_config = '/etc/default/instance_configs.cfg'
-+  instance_config = '%%PREFIX%%/etc/instance_configs.cfg'
++  instance_config = '/etc/instance_configs.cfg'
    instance_config_distro = '%s.distro' % instance_config
    instance_config_template = '%s.template' % instance_config
    instance_config_script = os.path.abspath(__file__)

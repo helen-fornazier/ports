@@ -5,7 +5,7 @@
  from google_compute_engine.compat import parser
  
 -CONFIG = '/etc/default/instance_configs.cfg'
-+CONFIG = '%%PREFIX%%/etc/instance_configs.cfg'
++CONFIG = '/etc/instance_configs.cfg'
  
  
  class ConfigManager(object):
