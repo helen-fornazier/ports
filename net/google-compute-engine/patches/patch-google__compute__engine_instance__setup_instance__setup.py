@@ -9,14 +9,20 @@
        return
 -    elif (os.path.exists('/etc/init.d/ssh') or
 -          os.path.exists('/etc/init/ssh.conf')):
-+    elif (os.path.exists('/etc/rc.d/ssh') or
-+          os.path.exists('/etc/rc/ssh.conf')):
-       subprocess.call(['service', 'ssh', 'start'])
-       subprocess.call(['service', 'ssh', 'reload'])
+-      subprocess.call(['service', 'ssh', 'start'])
+-      subprocess.call(['service', 'ssh', 'reload'])
 -    elif (os.path.exists('/etc/init.d/sshd') or
 -          os.path.exists('/etc/init/sshd.conf')):
+-      subprocess.call(['service', 'sshd', 'start'])
+-      subprocess.call(['service', 'sshd', 'reload'])
++    elif (os.path.exists('/etc/rc.d/ssh') or
++          os.path.exists('/etc/rc/ssh.conf')):
++      subprocess.call(['/etc/rc.d/ssh', 'start'])
++      subprocess.call(['/etc/rc.d/ssh', 'reload'])
 +    elif (os.path.exists('/etc/rc.d/sshd') or
 +          os.path.exists('/etc/rc/sshd.conf')):
-       subprocess.call(['service', 'sshd', 'start'])
-       subprocess.call(['service', 'sshd', 'reload'])
++      subprocess.call(['/etc/rc.d/sshd', 'start'])
++      subprocess.call(['/etc/rc.d/sshd', 'reload'])
  
+   def _SetSshHostKeys(self):
+     """Regenerates SSH host keys when the VM is restarted with a new IP address.

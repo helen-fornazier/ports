@@ -15,12 +15,12 @@
      self.logger.info('Clock drift token has changed: %s.', response)
 -    command = ['/sbin/hwclock', '--hctosys']
 +
-+    ntpd_inactive = subprocess.call(['service', 'ntpd', 'status'])
++    ntpd_inactive = subprocess.call(['/etc/rc.d/ntpd', 'status'])
      try:
 -      subprocess.check_call(command)
-+      if not ntpd_inactive: subprocess.check_call(['service', 'ntpd', 'stop'])
++      if not ntpd_inactive: subprocess.check_call(['/etc/rc.d/ntpd', 'stop'])
 +      subprocess.check_call('ntpdate `awk \'$1=="server" {print $2}\' /etc/ntp.conf`', shell=True)
-+      if not ntpd_inactive: subprocess.check_call(['service', 'ntpd', 'start'])
++      if not ntpd_inactive: subprocess.check_call(['/etc/rc.d/ntpd', 'start'])
      except subprocess.CalledProcessError:
        self.logger.warning('Failed to sync system time with hardware clock.')
      else:
