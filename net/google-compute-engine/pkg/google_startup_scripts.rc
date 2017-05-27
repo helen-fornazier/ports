@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# $OpenBSD: rc.template,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
+
+daemon="${TRUEPREFIX}/bin/google_metadata_script_runner"
+daemon_flags="--script-type startup"
+
+. /etc/rc.d/rc.subr
+
+rc_cmd $1

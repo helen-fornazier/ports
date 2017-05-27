@@ -78,3 +78,5 @@ lib/python${MODPY_VERSION}/site-packages/google_compute_engine/network_utils.py
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine/network_utils.pyc
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine/test_compat.py
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine/test_compat.pyc
+@rcscript ${RCDIR}/google_startup_scripts
+@rcscript ${RCDIR}/google_accounts_daemon
