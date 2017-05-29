@@ -1,5 +1,5 @@
---- /tmp/2rHzF2_network_utils.py	2017-05-29 18:03:51.780092152 -0300
-+++ google_compute_engine/network_utils.py	2017-05-29 18:02:04.364656274 -0300
+--- google_compute_engine/network_utils.py.orig	2017-05-14 18:25:32 UTC
++++ google_compute_engine/network_utils.py
 @@ -17,6 +17,7 @@
  
  import logging
@@ -8,24 +8,20 @@
  
  
  class NetworkUtils(object):
-@@ -38,14 +39,12 @@
+@@ -38,11 +39,12 @@
        dict, string MAC addresses mapped to the string network interface name.
      """
      interfaces = {}
 -    for interface in os.listdir('/sys/class/net'):
--      try:
++    for interface in netifaces.interfaces():
+       try:
 -        mac_address = open(
 -            '/sys/class/net/%s/address' % interface).read().strip()
 -      except (IOError, OSError) as e:
--        message = 'Unable to determine MAC address for %s. %s.'
--        self.logger.warning(message, interface, str(e))
--      else:
-+    for interface in netifaces.interfaces():
 +        mac_address = netifaces.ifaddresses(interface)[netifaces.AF_LINK][0]['addr']
 +        if  mac_address == interface:
-+            message = 'Unable to determine MAC address for %s.'
-+            self.logger.warning(message, interface)
-+            continue
-         interfaces[mac_address] = interface
-     return interfaces
- 
++            raise Exception('No MAC Address')
++      except Exception, e:
+         message = 'Unable to determine MAC address for %s. %s.'
+         self.logger.warning(message, interface, str(e))
+       else:
