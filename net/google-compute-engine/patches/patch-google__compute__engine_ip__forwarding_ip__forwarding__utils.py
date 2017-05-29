@@ -49,7 +49,7 @@
  
    def AddForwardedIp(self, address, interface):
      """Configure a new IP address on the network interface.
-@@ -121,9 +128,13 @@
+@@ -121,9 +128,12 @@
        interface: string, the output device to use.
      """
      address = address if IP_ALIAS_REGEX.match(address) else '%s/32' % address
@@ -58,15 +58,14 @@
 -    self._RunIpRoute(args=args, options=options)
 +    cmd = 'alias'
 +    try:
-+      forwarded_ips = netifaces.ifaddresses('lo' + self.proto_id)
++      forwarded_ips = netifaces.ifaddresses(interface)
 +    except (ValueError, KeyError) as e:
 +      cmd = 'create'
 +    self._RunIfconfig(args=[interface, cmd, address])
-+    self._RunIfconfig(args=['lo' + self.proto_id, cmd, address])
  
    def RemoveForwardedIp(self, address, interface):
      """Delete an IP address on the network interface.
-@@ -132,7 +143,6 @@
+@@ -132,7 +142,5 @@
        address: string, the IP address to configure.
        interface: string, the output device to use.
      """
@@ -76,4 +75,3 @@
 -    self._RunIpRoute(args=args, options=options)
 +    address = address if IP_REGEX.match(address) else address[:-3]
 +    self._RunIfconfig(args=[interface, '-alias', address])
-+    self._RunIfconfig(args=['lo' + self.proto_id, '-alias', address])
