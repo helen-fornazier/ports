@@ -44,7 +44,7 @@
 +      return []
 +    forwarded_ips = []
 +    for ip in ips:
-+      forwarded_ips.append(ip['peer'] + '/' + str(netaddr.IPAddress(ip['netmask']).netmask_bits()))
++      forwarded_ips.append(ip['addr'] + '/' + str(netaddr.IPAddress(ip['netmask']).netmask_bits()))
 +    return self.ParseForwardedIps(forwarded_ips)
  
    def AddForwardedIp(self, address, interface):
