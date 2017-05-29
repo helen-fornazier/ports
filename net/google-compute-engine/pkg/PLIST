@@ -5,8 +5,6 @@ bin/google_instance_setup
 bin/google_ip_forwarding_daemon
 bin/google_metadata_script_runner
 bin/google_network_setup
-bin/optimize_local_ssd
-bin/set_multiqueue
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine/
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine-2.3.6-py${MODPY_VERSION}.egg-info/
 lib/python${MODPY_VERSION}/site-packages/google_compute_engine-2.3.6-py${MODPY_VERSION}.egg-info/PKG-INFO

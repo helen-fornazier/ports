@@ -1,5 +1,5 @@
---- google_compute_engine/ip_forwarding/ip_forwarding_daemon.py.orig	2017-05-14 18:25:32 UTC
-+++ google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
+--- /tmp/cME1JV_ip_forwarding_daemon.py	2017-05-29 18:03:51.684092653 -0300
++++ google_compute_engine/ip_forwarding/ip_forwarding_daemon.py	2017-05-29 18:01:32.836823451 -0300
 @@ -38,7 +38,7 @@
  
  from google_compute_engine.ip_forwarding import ip_forwarding_utils

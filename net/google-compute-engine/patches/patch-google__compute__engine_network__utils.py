@@ -1,5 +1,5 @@
---- /tmp/KWpq5X_network_utils.py	2017-05-19 08:44:58.717188081 -0300
-+++ google_compute_engine/network_utils.py	2017-05-19 08:44:55.457204773 -0300
+--- /tmp/2rHzF2_network_utils.py	2017-05-29 18:03:51.780092152 -0300
++++ google_compute_engine/network_utils.py	2017-05-29 18:02:04.364656274 -0300
 @@ -17,6 +17,7 @@
  
  import logging
