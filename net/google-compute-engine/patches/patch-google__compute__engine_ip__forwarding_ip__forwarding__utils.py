@@ -1,5 +1,5 @@
---- /tmp/twbsI1_ip_forwarding_utils.py	2017-05-29 18:03:51.732092402 -0300
-+++ google_compute_engine/ip_forwarding/ip_forwarding_utils.py	2017-05-29 18:01:32.836823451 -0300
+--- google_compute_engine/ip_forwarding/ip_forwarding_utils.py.orig	2017-05-14 18:25:32 UTC
++++ google_compute_engine/ip_forwarding/ip_forwarding_utils.py
 @@ -17,6 +17,8 @@
  
  import re
@@ -29,7 +29,7 @@
      command.extend(args)
      for item in options.items():
        command.extend(item)
-@@ -108,10 +110,15 @@
+@@ -108,10 +110,17 @@
      Returns:
        list, the IP address strings.
      """
@@ -44,12 +44,14 @@
 +      return []
 +    forwarded_ips = []
 +    for ip in ips:
-+      forwarded_ips.append(ip['addr'] + '/' + str(netaddr.IPAddress(ip['netmask']).netmask_bits()))
++      netmask = int(subprocess.check_output("ifconfig lo%s | grep %s | awk '{printf $NF}'" %
++                                            (self.proto_id, ip['addr']), shell=True), 16)
++      forwarded_ips.append(ip['addr'] + '/' + str(netaddr.IPAddress(netmask).netmask_bits()))
 +    return self.ParseForwardedIps(forwarded_ips)
  
    def AddForwardedIp(self, address, interface):
      """Configure a new IP address on the network interface.
-@@ -121,9 +128,12 @@
+@@ -121,9 +130,12 @@
        interface: string, the output device to use.
      """
      address = address if IP_ALIAS_REGEX.match(address) else '%s/32' % address
@@ -65,7 +67,7 @@
  
    def RemoveForwardedIp(self, address, interface):
      """Delete an IP address on the network interface.
-@@ -132,7 +142,5 @@
+@@ -132,7 +144,5 @@
        address: string, the IP address to configure.
        interface: string, the output device to use.
      """
