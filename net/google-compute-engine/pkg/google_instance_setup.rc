@@ -1,9 +1,8 @@
 #!/bin/sh
 #
-# $OpenBSD: google_startup_scripts.rc,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
+# $OpenBSD: google_instance_setup.rc,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
 
-daemon="${MODPY_BIN} ${TRUEPREFIX}/bin/google_metadata_script_runner"
-daemon_flags="--script-type=startup"
+daemon="${MODPY_BIN} ${TRUEPREFIX}/bin/google_instance_setup"
 
 . /etc/rc.d/rc.subr
 

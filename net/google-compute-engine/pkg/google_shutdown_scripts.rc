@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# $OpenBSD: google_shutdown_scritps.rc,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
+
+daemon="${MODPY_BIN} ${TRUEPREFIX}/bin/google_metadata_script_runner"
+daemon_flags="--script-type=shutdown"
+
+. /etc/rc.d/rc.subr
+
+rc_start() {
+	return 0
+}
+
+_CHECK=0
+rc_check() {
+	return ${_CHECK}
+}
+
+rc_stop() {
+        ${rcexec} "${daemon} ${daemon_flags} ${_bg}"
+        _CHECK=1
+}
+
+rc_reload=NO
+
+rc_cmd $1
