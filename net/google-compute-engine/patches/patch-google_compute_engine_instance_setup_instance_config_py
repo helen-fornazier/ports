@@ -1,4 +1,7 @@
---- google_compute_engine/instance_setup/instance_config.py.orig	2017-05-14 18:25:32 UTC
+$OpenBSD$
+
+Index: google_compute_engine/instance_setup/instance_config.py
+--- google_compute_engine/instance_setup/instance_config.py.orig
 +++ google_compute_engine/instance_setup/instance_config.py
 @@ -16,8 +16,8 @@
  """A library used to set up the instance's default configurations file.
@@ -11,7 +14,7 @@
  overridden during package upgrade.
  """
  
-@@ -30,7 +30,7 @@
+@@ -30,7 +30,7 @@ from google_compute_engine.compat import parser
  class InstanceConfig(config_manager.ConfigManager):
    """Creates a defaults config file for instance configuration."""
  
@@ -20,7 +23,7 @@
    instance_config_distro = '%s.distro' % instance_config
    instance_config_template = '%s.template' % instance_config
    instance_config_script = os.path.abspath(__file__)
-@@ -38,7 +38,7 @@
+@@ -38,7 +38,7 @@ class InstanceConfig(config_manager.ConfigManager):
        'This file is automatically created at boot time by the %s script. Do '
        'not edit this file directly. If you need to add items to this file, '
        'create or edit %s instead and then run '
@@ -29,7 +32,7 @@
    instance_config_options = {
        'Accounts': {
            'deprovision_remove': 'false',
-@@ -53,11 +53,11 @@
+@@ -53,11 +53,11 @@ class InstanceConfig(config_manager.ConfigManager):
            'instance_id': '0',
        },
        'InstanceSetup': {

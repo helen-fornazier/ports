@@ -1,6 +1,9 @@
---- google_compute_engine/instance_setup/instance_setup.py.orig	2017-05-14 18:25:32 UTC
+$OpenBSD$
+
+Index: google_compute_engine/instance_setup/instance_setup.py
+--- google_compute_engine/instance_setup/instance_setup.py.orig
 +++ google_compute_engine/instance_setup/instance_setup.py
-@@ -119,16 +119,16 @@
+@@ -119,16 +119,16 @@ class InstanceSetup(object):
      """Initialize the SSH daemon."""
      # Exit as early as possible.
      # Instance setup systemd scripts block sshd from starting.

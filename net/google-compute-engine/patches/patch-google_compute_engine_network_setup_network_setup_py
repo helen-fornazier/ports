@@ -1,6 +1,9 @@
---- google_compute_engine/network_setup/network_setup.py.orig	2017-05-14 18:25:32 UTC
+$OpenBSD$
+
+Index: google_compute_engine/network_setup/network_setup.py
+--- google_compute_engine/network_setup/network_setup.py.orig
 +++ google_compute_engine/network_setup/network_setup.py
-@@ -106,12 +106,18 @@
+@@ -106,12 +106,18 @@ class NetworkSetup(object):
      self.logger.info('Enabling the Ethernet interfaces %s.', interfaces)
      dhclient_command = ['dhclient']
      if os.path.exists(self.dhclient_script):

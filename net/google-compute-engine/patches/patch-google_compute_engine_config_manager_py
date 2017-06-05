@@ -1,6 +1,9 @@
---- google_compute_engine/config_manager.py.orig	2017-05-14 18:25:32 UTC
+$OpenBSD$
+
+Index: google_compute_engine/config_manager.py
+--- google_compute_engine/config_manager.py.orig
 +++ google_compute_engine/config_manager.py
-@@ -21,7 +21,7 @@
+@@ -21,7 +21,7 @@ import textwrap
  from google_compute_engine import file_utils
  from google_compute_engine.compat import parser
  
@@ -9,7 +12,7 @@
  
  
  class ConfigManager(object):
-@@ -101,7 +101,7 @@
+@@ -101,7 +101,7 @@ class ConfigManager(object):
      """
      config_file = config_file or self.config_file
      config_name = os.path.splitext(os.path.basename(config_file))[0]

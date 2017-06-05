@@ -1,6 +1,9 @@
---- /tmp/cME1JV_ip_forwarding_daemon.py	2017-05-29 18:03:51.684092653 -0300
-+++ google_compute_engine/ip_forwarding/ip_forwarding_daemon.py	2017-05-29 18:01:32.836823451 -0300
-@@ -38,7 +38,7 @@
+$OpenBSD$
+
+Index: google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
+--- google_compute_engine/ip_forwarding/ip_forwarding_daemon.py.orig
++++ google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
+@@ -38,7 +38,7 @@ from google_compute_engine import network_utils
  
  from google_compute_engine.ip_forwarding import ip_forwarding_utils
  
@@ -9,7 +12,7 @@
  
  
  class IpForwardingDaemon(object):
-@@ -130,17 +130,17 @@
+@@ -130,17 +130,17 @@ class IpForwardingDaemon(object):
      Args:
        result: dict, the metadata response with the new network interfaces.
      """
