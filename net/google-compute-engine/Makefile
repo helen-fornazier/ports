@@ -58,14 +58,8 @@ RUN_DEPENDS =	shells/bash \
 		net/py-netaddr
 
 pre-configure:
-	@sed -i -e 's|%%PREFIX%%|${PREFIX}|g' \
-		${WRKSRC}/build_packages.sh \
-		${WRKSRC}/google_compute_engine/accounts/accounts_utils.py \
-		${WRKSRC}/google_compute_engine/boto/boto_config.py \
-		${WRKSRC}/google_compute_engine/boto/compute_auth.py \
-		${WRKSRC}/google_compute_engine/config_manager.py \
-		${WRKSRC}/google_compute_engine/instance_setup/instance_config.py \
-		${WRKSRC}/google_compute_engine/metadata_scripts/script_executor.py \
-		${WRKSRC}/google_compute_engine/network_setup/network_setup.py
+	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_config.py
+	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_setup.py
+	${SUBST_CMD} ${WRKSRC}/google_compute_engine/metadata_scripts/script_executor.py
 
 .include <bsd.port.mk>

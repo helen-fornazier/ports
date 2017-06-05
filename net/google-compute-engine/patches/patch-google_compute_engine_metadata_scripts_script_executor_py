@@ -8,7 +8,7 @@ Index: google_compute_engine/metadata_scripts/script_executor.py
      """
      process = subprocess.Popen(
 -        metadata_script, shell=True, executable='/bin/bash',
-+        metadata_script, shell=True, executable='%%PREFIX%%/bin/bash',
++        metadata_script, shell=True, executable='${LOCALBASE}/bin/bash',
          stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
      while True:
        for line in iter(process.stdout.readline, b''):

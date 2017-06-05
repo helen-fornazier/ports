@@ -8,7 +8,7 @@ Index: google_compute_engine/instance_setup/instance_setup.py
      # Exit as early as possible.
      # Instance setup systemd scripts block sshd from starting.
 -    if os.path.exists('/bin/systemctl'):
-+    if os.path.exists('%%PREFIX%%/bin/systemctl'):
++    if os.path.exists('${LOCALBASE}/bin/systemctl'):
        return
 -    elif (os.path.exists('/etc/init.d/ssh') or
 -          os.path.exists('/etc/init/ssh.conf')):

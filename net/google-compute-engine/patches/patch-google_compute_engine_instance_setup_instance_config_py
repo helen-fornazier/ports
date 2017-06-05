@@ -28,7 +28,7 @@ Index: google_compute_engine/instance_setup/instance_config.py
        'not edit this file directly. If you need to add items to this file, '
        'create or edit %s instead and then run '
 -      '/usr/bin/google_instance_setup.')
-+      '%%PREFIX%%/bin/google_instance_setup.')
++      '${PREFIX}/bin/google_instance_setup.')
    instance_config_options = {
        'Accounts': {
            'deprovision_remove': 'false',
