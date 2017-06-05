@@ -10,8 +10,6 @@ GH_TAGNAME =	20170523
 
 CATEGORIES =	net
 
-HOMEPAGE =	https://github.com/GoogleCloudPlatform/compute-image-packages
-
 MAINTAINER =	Helen Koike <helen.koike@collabora.com>
 
 # Apache 2.0
