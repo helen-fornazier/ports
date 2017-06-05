@@ -51,7 +51,6 @@ MODPY_ADJ_FILES =	scripts/optimize_local_ssd \
 		google_compute_engine/compat.py
 
 RUN_DEPENDS =	shells/bash \
-		security/sudo \
 		net/ntp \
 		net/py-boto \
 		net/py-netifaces \

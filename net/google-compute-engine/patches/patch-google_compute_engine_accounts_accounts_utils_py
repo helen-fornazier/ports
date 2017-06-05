@@ -3,15 +3,12 @@ $OpenBSD$
 Index: google_compute_engine/accounts/accounts_utils.py
 --- google_compute_engine/accounts/accounts_utils.py.orig
 +++ google_compute_engine/accounts/accounts_utils.py
-@@ -43,7 +43,10 @@ class AccountsUtils(object):
+@@ -43,7 +43,7 @@ class AccountsUtils(object):
      """
      self.logger = logger
      self.google_sudoers_group = 'google-sudoers'
 -    self.google_sudoers_file = '/etc/sudoers.d/google_sudoers'
-+    if os.path.exists('/etc/sudoers.d'):
-+      self.google_sudoers_file = '/etc/sudoers.d/google_sudoers'
-+    else:
-+      self.google_sudoers_file = '/etc/sudoers'
++    self.google_sudoers_file = '/etc/doas.conf'
      self.google_users_dir = '/var/lib/google'
      self.google_users_file = os.path.join(self.google_users_dir, 'google_users')
  
@@ -33,7 +30,7 @@ Index: google_compute_engine/accounts/accounts_utils.py
 +    try:
 +      with open(self.google_sudoers_file, 'a+') as group:
 +        group.seek(0)
-+        message = '%{0} ALL=(ALL) NOPASSWD: SETENV: ALL'.format(
++        message = 'permit nopass keepenv :{0}'.format(
 +            self.google_sudoers_group)
 +        if not any(message == x.rstrip('\r\n') for x in group):
 +            group.write(message + '\n')
