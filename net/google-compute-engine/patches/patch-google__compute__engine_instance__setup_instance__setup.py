@@ -1,6 +1,6 @@
 --- google_compute_engine/instance_setup/instance_setup.py.orig	2017-05-14 18:25:32 UTC
 +++ google_compute_engine/instance_setup/instance_setup.py
-@@ -119,14 +119,14 @@
+@@ -119,16 +119,16 @@
      """Initialize the SSH daemon."""
      # Exit as early as possible.
      # Instance setup systemd scripts block sshd from starting.

@@ -2,11 +2,11 @@
 
 COMMENT =	Google daemon for use with Google Cloud Compute Engine
 
-DISTNAME =	google-compute-engine-2.3.6
+DISTNAME =	google-compute-engine-2.3.7
 
 GH_ACCOUNT =	GoogleCloudPlatform
 GH_PROJECT =	compute-image-packages
-GH_TAGNAME =	20170426
+GH_TAGNAME =	20170523
 
 CATEGORIES =	net
 
