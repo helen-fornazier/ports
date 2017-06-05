@@ -50,8 +50,7 @@ MODPY_ADJ_FILES =	scripts/optimize_local_ssd \
 		google_compute_engine/boto/boto_config.py \
 		google_compute_engine/compat.py
 
-RUN_DEPENDS =	shells/bash \
-		net/ntp \
+RUN_DEPENDS =	net/ntp \
 		net/py-boto \
 		net/py-netifaces \
 		net/py-netaddr
@@ -59,6 +58,5 @@ RUN_DEPENDS =	shells/bash \
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_config.py
 	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_setup.py
-	${SUBST_CMD} ${WRKSRC}/google_compute_engine/metadata_scripts/script_executor.py
 
 .include <bsd.port.mk>
