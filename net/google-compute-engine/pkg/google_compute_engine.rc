@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# $OpenBSD: google_compute_engine.rc,v 1.4 2015/11/29 15:50:20 ajacoutot Exp $
+
+# "meta" script running the following rc.d(8) scripts with the given argument;
+# note that daemon_flags, daemon_user, daemon_timeout and daemon_class are not
+# passed to the child scripts.
+
+if [ "$1" = restart ]; then
+	$0 stop && $0 start
+	exit
+fi
+
+_pkg_scripts="google_instance_setup google_network_setup google_startup_scripts
+google_accounts_daemon google_clock_skew_daemon google_ip_forwarding_daemon
+google_shutdown_scripts"
+
+for _i in ${_pkg_scripts}; do
+	if [[ -x ${RCDIR}/${_i} ]]; then
+		${RCDIR}/${_i} $@ || exit $?
+	fi
+done

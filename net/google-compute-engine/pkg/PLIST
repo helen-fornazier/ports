@@ -84,3 +84,4 @@ share/doc/pkg-readmes/${FULLPKGNAME}
 @rcscript ${RCDIR}/google_network_setup
 @rcscript ${RCDIR}/google_shutdown_scripts
 @rcscript ${RCDIR}/google_startup_scripts
+@rcscript ${RCDIR}/google_compute_engine

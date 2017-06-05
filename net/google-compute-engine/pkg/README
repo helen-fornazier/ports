@@ -4,21 +4,12 @@ $OpenBSD: README.template,v 1.5 2016/08/27 09:47:26 ajacoutot Exp $
 | Running ${FULLPKGNAME} on OpenBSD
 +-------------------------------------------------------------------------------
 
-Configuring compute-image-package scripts to run at boot
-==============
+Configuring google_compute_engine scripts to run at boot
+========================================================
 
 The rc scripts are not enabled by default, you can enable them using the
-following commands
+following command
 
-rcctl enable google_instance_setup
-rcctl enable google_network_setup
-rcctl enable google_startup_scripts
-rcctl enable google_accounts_daemon
-rcctl enable google_clock_skew_daemon
-rcctl enable google_ip_forwarding_daemon
-rcctl enable google_shutdown_scripts
+	rcctl enable google_compute_engine
 
-Make sure that "rcctl order" shows google_instance_setup followed by
-google_network_setup before the other scripts
-
-Reboot your system
+Then reboot your system
