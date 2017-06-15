@@ -50,8 +50,7 @@ MODPY_ADJ_FILES =	scripts/optimize_local_ssd \
 		google_compute_engine/boto/boto_config.py \
 		google_compute_engine/compat.py
 
-RUN_DEPENDS =	net/ntp \
-		net/py-boto \
+RUN_DEPENDS =	net/py-boto \
 		net/py-netifaces \
 		net/py-netaddr
 
