@@ -12,7 +12,7 @@ Index: google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
  
  
  class IpForwardingDaemon(object):
-@@ -130,17 +130,17 @@ class IpForwardingDaemon(object):
+@@ -131,18 +131,18 @@ class IpForwardingDaemon(object):
      Args:
        result: dict, the metadata response with the new network interfaces.
      """
@@ -23,7 +23,8 @@ Index: google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
 -      ip_addresses = []
        if interface:
          ip_addresses.extend(network_interface.get('forwardedIps', []))
-         ip_addresses.extend(network_interface.get('ipAliases', []))
+         if self.ip_aliases:
+           ip_addresses.extend(network_interface.get('ipAliases', []))
 -        self._HandleForwardedIps(ip_addresses, interface)
        else:
          message = 'Network interface not found for MAC address: %s.'

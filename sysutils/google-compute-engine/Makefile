@@ -2,12 +2,12 @@
 
 COMMENT =	Google daemon for use with Google Cloud Compute Engine
 
-MODPY_EGG_VERSION = 2.3.7
+MODPY_EGG_VERSION = 2.4.0
 DISTNAME =	google-compute-engine-${MODPY_EGG_VERSION}
 
 GH_ACCOUNT =	GoogleCloudPlatform
 GH_PROJECT =	compute-image-packages
-GH_TAGNAME =	20170523
+GH_TAGNAME =	20170609
 
 CATEGORIES =	sysutils
 

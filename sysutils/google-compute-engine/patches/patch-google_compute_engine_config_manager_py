@@ -8,7 +8,7 @@ Index: google_compute_engine/config_manager.py
  from google_compute_engine.compat import parser
  
 -CONFIG = '/etc/default/instance_configs.cfg'
-+CONFIG = '${SYSCONFDIR}/instance_configs.cfg'
++CONFIG = '/etc/instance_configs.cfg'
  
  
  class ConfigManager(object):

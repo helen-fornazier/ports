@@ -9,5 +9,5 @@ Index: setup.py
      packages=setuptools.find_packages(),
 -    scripts=glob.glob('scripts/*'),
      url='https://github.com/GoogleCloudPlatform/compute-image-packages',
-     version='2.3.7',
+     version='2.4.0',
      # Entry points create scripts in /usr/bin that call a function.

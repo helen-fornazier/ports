@@ -3,7 +3,7 @@ $OpenBSD$
 Index: google_compute_engine/instance_setup/instance_setup.py
 --- google_compute_engine/instance_setup/instance_setup.py.orig
 +++ google_compute_engine/instance_setup/instance_setup.py
-@@ -118,17 +118,9 @@ class InstanceSetup(object):
+@@ -142,17 +142,9 @@ class InstanceSetup(object):
    def _StartSshd(self):
      """Initialize the SSH daemon."""
      # Exit as early as possible.
