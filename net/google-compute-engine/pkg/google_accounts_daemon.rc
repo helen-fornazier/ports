@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# $OpenBSD: google_accounts_daemon.rc,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
+# $OpenBSD$
 
 daemon="${MODPY_BIN} ${TRUEPREFIX}/bin/google_accounts_daemon"
 
 . /etc/rc.d/rc.subr
 
-rc_reload=NO
 rc_bg=YES
+rc_reload=NO
 
 rc_cmd $1

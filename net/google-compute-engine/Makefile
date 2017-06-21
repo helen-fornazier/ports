@@ -2,13 +2,14 @@
 
 COMMENT =	Google daemon for use with Google Cloud Compute Engine
 
-DISTNAME =	google-compute-engine-2.3.7
+MODPY_EGG_VERSION = 2.3.7
+DISTNAME =	google-compute-engine-${MODPY_EGG_VERSION}
 
 GH_ACCOUNT =	GoogleCloudPlatform
 GH_PROJECT =	compute-image-packages
 GH_TAGNAME =	20170523
 
-CATEGORIES =	net
+CATEGORIES =	sysutils
 
 MAINTAINER =	Helen Koike <helen.koike@collabora.com>
 
@@ -19,43 +20,12 @@ MODULES =		lang/python
 
 MODPY_SETUPTOOLS =	Yes
 
-MODPY_ADJ_FILES =	scripts/optimize_local_ssd \
-		scripts/set_multiqueue \
-		google_compute_engine/network_setup/network_setup.py \
-		google_compute_engine/network_setup/__init__.py \
-		google_compute_engine/metadata_scripts/script_retriever.py \
-		google_compute_engine/metadata_scripts/__init__.py \
-		google_compute_engine/metadata_scripts/script_executor.py \
-		google_compute_engine/metadata_scripts/script_manager.py \
-		google_compute_engine/ip_forwarding/__init__.py \
-		google_compute_engine/ip_forwarding/ip_forwarding_utils.py \
-		google_compute_engine/ip_forwarding/ip_forwarding_daemon.py \
-		google_compute_engine/network_utils.py \
-		google_compute_engine/clock_skew/clock_skew_daemon.py \
-		google_compute_engine/clock_skew/__init__.py \
-		google_compute_engine/__init__.py \
-		google_compute_engine/metadata_watcher.py \
-		google_compute_engine/instance_setup/instance_config.py \
-		google_compute_engine/instance_setup/__init__.py \
-		google_compute_engine/instance_setup/instance_setup.py \
-		google_compute_engine/test_compat.py \
-		google_compute_engine/config_manager.py \
-		google_compute_engine/file_utils.py \
-		google_compute_engine/accounts/accounts_daemon.py \
-		google_compute_engine/accounts/__init__.py \
-		google_compute_engine/accounts/accounts_utils.py \
-		google_compute_engine/logger.py \
-		google_compute_engine/boto/__init__.py \
-		google_compute_engine/boto/compute_auth.py \
-		google_compute_engine/boto/boto_config.py \
-		google_compute_engine/compat.py
-
 RUN_DEPENDS =	net/py-boto \
 		net/py-netifaces \
 		net/py-netaddr
 
 pre-configure:
-	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_config.py
-	${SUBST_CMD} ${WRKSRC}/google_compute_engine/instance_setup/instance_setup.py
+	cd ${WRKSRC}/google_compute_engine && ${SUBST_CMD} \
+		config_manager.py instance_setup/instance_{config,setup}.py
 
 .include <bsd.port.mk>

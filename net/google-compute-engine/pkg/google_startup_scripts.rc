@@ -1,22 +1,22 @@
 #!/bin/sh
 #
-# $OpenBSD: google_startup_scripts.rc,v 1.10 2016/06/10 21:14:37 ajacoutot Exp $
+# $OpenBSD$
 
 daemon="${MODPY_BIN} ${TRUEPREFIX}/bin/google_metadata_script_runner"
 daemon_flags="--script-type=startup"
 
 . /etc/rc.d/rc.subr
 
+rc_reload=NO
+
 _CHECK=1
 rc_start() {
-        ${rcexec} "${daemon} ${daemon_flags} ${_bg}"
-        _CHECK=0
+	${rcexec} "${daemon} ${daemon_flags}"
+	_CHECK=0
 }
 
 rc_check() {
-        return ${_CHECK}
+	return ${_CHECK}
 }
-
-rc_reload=NO
 
 rc_cmd $1
