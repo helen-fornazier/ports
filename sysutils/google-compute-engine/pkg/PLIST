@@ -79,9 +79,4 @@ lib/python${MODPY_VERSION}/site-packages/google_compute_engine/test_compat.pyc
 share/doc/pkg-readmes/${FULLPKGNAME}
 @rcscript ${RCDIR}/google_accounts_daemon
 @rcscript ${RCDIR}/google_clock_skew_daemon
-@rcscript ${RCDIR}/google_instance_setup
 @rcscript ${RCDIR}/google_ip_forwarding_daemon
-@rcscript ${RCDIR}/google_network_setup
-@rcscript ${RCDIR}/google_shutdown_scripts
-@rcscript ${RCDIR}/google_startup_scripts
-@rcscript ${RCDIR}/google_compute_engine
