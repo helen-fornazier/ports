@@ -112,7 +112,6 @@
      SUBDIR += gnaughty
      SUBDIR += gnugk
      SUBDIR += go-net
-     SUBDIR += google-compute-engine
      SUBDIR += gopher
      SUBDIR += gophernicus
      SUBDIR += gotthard

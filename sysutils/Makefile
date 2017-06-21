@@ -91,6 +91,7 @@
      SUBDIR += glastree
      SUBDIR += go-cs
      SUBDIR += google-cloud-sdk
+     SUBDIR += google-compute-engine
      SUBDIR += gource
      SUBDIR += gpioflicker
      SUBDIR += grive2
